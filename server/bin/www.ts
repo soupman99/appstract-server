@@ -18,6 +18,10 @@ app.set('port', port);
  * Create HTTP server.
  */
 const server = http.createServer(app);
+const io = require('socket.io')(server);
+import {initSockets} from './sockets';
+initSockets(io);
+
 
 /**
  * Listen on provided port, on all network interfaces.
