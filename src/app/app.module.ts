@@ -8,17 +8,20 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
-import { routing } from './app.routing';
+import { CanvasComponent } from './canvas.component'
+import { CanvasService } from './canvas.service'
+//import { routing } from './app.routing';
 import { feedReducer } from './store/feed/feed.reducer';
 import { FeedEffects } from './store/feed/feed.effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CanvasComponent
   ],
   imports: [
     BrowserModule,
-    routing,
+   // routing,
     FormsModule,
     StoreModule.provideStore({
       feed: feedReducer
@@ -33,7 +36,7 @@ import { FeedEffects } from './store/feed/feed.effects';
     StoreLogMonitorModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CanvasService],
   bootstrap: [
     AppComponent
   ]

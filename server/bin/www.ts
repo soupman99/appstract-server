@@ -19,7 +19,7 @@ app.set('port', port);
  */
 const server = http.createServer(app);
 const io = require('socket.io')(server);
-import {initSockets} from './sockets';
+import {initSockets} from './sockets.server';
 initSockets(io);
 
 
