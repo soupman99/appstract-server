@@ -52,6 +52,7 @@
     "express": "^4.13.4",
     "express-jwt": "^3.3.0",
     "jsonwebtoken": "^5.7.0",
+    "lodash": "^4.16.6",
     "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
     "path": "^0.12.7",

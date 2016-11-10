@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 interface mouseInterface {
   previousX: number;
   previousY: number;
@@ -24,40 +25,29 @@ export class CanvasService {
     this.canvas.style = 'border:solid 1px red;'
     this.context = canvas.getContext("2d");
 
-   // setTimeout(this.fadeOut, 3000);
-
   }
 
 
 
 
-  addLayer(layerInfo) {
-    this.layers[layerInfo.id] = {
-      previousX: 0,
-      previousY: 0,
-      color:layerInfo.color
-    }
-    console.log(layerInfo.id);
+  addLayers(clients) {
+
+    clients.map(client => {
+
+      this.layers[client] = {
+        previousX: window.innerWidth/2, //start in X center
+        previousY: window.innerHeight/2, //start in Y center
+        color:"#"+((1<<24)*Math.random()|0).toString(16),
+        //ip:client.ip
+      }
+    });
+
+    //console.log(JSON.stringify(this.layers));
 
     return this.layers;
   }
 
 
-  draw(data) {
-    // //console.log(data);
-    // // console.log(this.layers)
-    // this.context.beginPath();
-    // this.context.lineWidth = 5;
-    // this.context.strokeStyle = "green"; // Green path
-    // this.context.moveTo(this.layers[data.id].previousX, this.layers[data.id].previousY);
-    // this.context.lineTo(data.x, data.y);
-    // this.context.stroke();
-    //
-    //
-    // this.layers[data.id] = {
-    //   previousX: data.x,
-    //   previousY: data.y
-    // }
-  }
+
 
 }

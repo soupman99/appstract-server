@@ -2,6 +2,9 @@ import { Component, AfterViewInit, OnInit, ViewChild} from '@angular/core';
 import { CanvasService } from '../../services/canvas.service/canvas.service';
 import { SocketService } from "../../services/sockets.service/sockets.service";
 
+import * as _ from 'lodash';
+
+
 import * as io from 'socket.io-client';
 
 @Component({
@@ -12,21 +15,16 @@ export class CanvasComponent implements OnInit {
 
   private socket;
 
-  rectW:number = 105;
-  rectH:number = 100;
-  rectColor:string = "#FF0000";
+
   context:CanvasRenderingContext2D;
-
-  _name: string = '<no name set>';
   canvas = null;
-  @ViewChild("myCanvas") myCanvas;
 
+  @ViewChild("myCanvas") myCanvas;
 
   constructor(private canvasService:CanvasService, private socketService:SocketService){
     this.socket = io("http://localhost:4300");
-    this._name = "hello";
-    console.log(this.rectW);
-  }
+
+     }
   ngOnInit() {
 
     this.canvas = this.myCanvas.nativeElement;
@@ -66,23 +64,24 @@ export class CanvasComponent implements OnInit {
   attachSocketActions(){
     let canvasService = this.canvasService;
     let socket = this.socket;
-    this.socket.on('connect', function(){
-      let color = "#"+((1<<24)*Math.random()|0).toString(16);
-      let layerInfo = {
-        id:socket.id,
-        color:color
-      }
-      canvasService.addLayer(layerInfo)
+
+    this.socket.on('receiveAllClients', (allClients)=>{
+
+      let result = canvasService.addLayers(allClients)
+      console.log(result);
+
+    })
+
+
+    this.socket.on('connect', ()=>{
+
       console.log('connected');
     })
-    this.socket.on('news', function(data){
-      console.log('news %s', data)
-    })
+
 
     this.socket.on('drawMouse', (data)=>{
-      data.id = socket.id;
+        this.draw(data)
 
-      this.draw(data)
     })
   }
 }
