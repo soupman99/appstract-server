@@ -37,7 +37,7 @@ export class CanvasComponent implements OnInit {
   }
 
   fadeOut = () =>{
-    console.log('fading');
+    //console.log('fading');
     let ctx  = this.context;
     ctx.fillStyle = "rgba(255,255,255,.2)";
 
@@ -47,6 +47,7 @@ export class CanvasComponent implements OnInit {
 
 
   draw(data){
+    console.log(data.id, this.canvasService.layers[data.id]);
     this.context.beginPath();
     this.context.lineWidth = 5;
     this.context.strokeStyle = this.canvasService.layers[data.id].color;
@@ -75,8 +76,10 @@ export class CanvasComponent implements OnInit {
 
     this.socket.on('connect', ()=>{
 
-      console.log('connected');
+
+      console.log('connected as %s', this.socket.id);
     })
+
 
 
     this.socket.on('drawMouse', (data)=>{
