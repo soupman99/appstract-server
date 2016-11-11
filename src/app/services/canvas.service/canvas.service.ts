@@ -29,7 +29,9 @@ export class CanvasService {
 
 
 
-
+generateColor(){
+  return "#"+((1<<24)*Math.random()|0).toString(16);
+}
   addLayers(clients) {
 
 
@@ -38,10 +40,9 @@ export class CanvasService {
       this.layers[client.id] = {
         previousX: window.innerWidth/2, //start in X center
         previousY: window.innerHeight/2, //start in Y center
-        color:"#"+((1<<24)*Math.random()|0).toString(16),
+        color:this.generateColor(),
         ip:client.ip
       }
-      console.log(this.layers[client.id]);
 
     });
 

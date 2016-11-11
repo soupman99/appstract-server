@@ -33,7 +33,7 @@ export class CanvasComponent implements OnInit {
 
     this.attachSocketActions();
 
-    setInterval(this.fadeOut, 100)
+   // setInterval(this.fadeOut, 100)
   }
 
   fadeOut = () =>{
@@ -47,7 +47,7 @@ export class CanvasComponent implements OnInit {
 
 
   draw(data){
-    console.log(data.id, this.canvasService.layers[data.id]);
+    console.info('%s - drawing - socket: %s - color: %s', data.ip, data.id, this.canvasService.layers[data.id].color);
     this.context.beginPath();
     this.context.lineWidth = 5;
     this.context.strokeStyle = this.canvasService.layers[data.id].color;
@@ -55,10 +55,9 @@ export class CanvasComponent implements OnInit {
     this.context.lineTo(data.x, data.y);
     this.context.stroke();
 
-    this.canvasService.layers[data.id] = {
-      previousX: data.x,
-      previousY: data.y
-    }
+    this.canvasService.layers[data.id].previousX = data.x;
+    this.canvasService.layers[data.id].previousY = data.y;
+
 
   }
 
@@ -69,14 +68,11 @@ export class CanvasComponent implements OnInit {
     this.socket.on('receiveAllClients', (allClients)=>{
 
       let result = canvasService.addLayers(allClients)
-      console.log(result);
 
     })
 
 
     this.socket.on('connect', ()=>{
-
-
       console.log('connected as %s', this.socket.id);
     })
 
