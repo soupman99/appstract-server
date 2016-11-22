@@ -33,6 +33,10 @@ export class CanvasComponent implements OnInit {
 
     this.attachSocketActions();
 
+    let ctx  = this.context;
+    ctx.fillStyle = "#161f29";
+
+    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
    // setInterval(this.fadeOut, 100)
   }
 
@@ -49,8 +53,10 @@ export class CanvasComponent implements OnInit {
   draw(data){
     console.info('%s - drawing - socket: %s - color: %s', data.ip, data.id, this.canvasService.layers[data.id].color);
     this.context.beginPath();
-    this.context.lineWidth = 5;
+    this.context.lineWidth = this.canvasService.layers[data.id].lineWidth;
+    this.context.lineCap = 'round';
     this.context.strokeStyle = this.canvasService.layers[data.id].color;
+
     this.context.moveTo(this.canvasService.layers[data.id].previousX, this.canvasService.layers[data.id].previousY);
     this.context.lineTo(data.x, data.y);
     this.context.stroke();
