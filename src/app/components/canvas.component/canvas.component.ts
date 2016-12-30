@@ -22,7 +22,7 @@ export class CanvasComponent implements OnInit {
   @ViewChild("myCanvas") myCanvas;
 
   constructor(private canvasService:CanvasService, private socketService:SocketService){
-    this.socket = io("http://localhost:4300");
+    this.socket = io("http://10.1.160.90:4300");
 
      }
   ngOnInit() {
