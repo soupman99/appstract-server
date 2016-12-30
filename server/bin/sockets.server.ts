@@ -30,7 +30,6 @@ export function initSockets(io) {
     socket.on('disconnect', function() {
       console.log('Got disconnect!');
       console.log(allClients.length);
-
       console.log('socket to pull %s', socket.id)
 
 

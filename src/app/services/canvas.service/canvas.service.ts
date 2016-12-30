@@ -52,7 +52,11 @@ generateColor(){
   //return "rgba(100,47,71,1)"
   var rando_brightness = _.random(20, 90)/100
   var random_color = _.random(0, this.colors.length-1)
-  var color = Color(this.colors[random_color].hex).hexString();
+  var random_darkness = _.random(0, 60)/100;
+  var random_lighten = _.random(0, 60)/100;
+
+  console.log("random darkness %s", random_darkness);
+  var color = Color(this.colors[random_color].hex).darken(random_darkness).lighten(random_lighten).hexString();
   return color;
   //return colorsys.hsv_to_rgb(this.colors[0].h, this.colors[0].s, rando_brightness)
  // return "#"+((1<<24)*Math.random()|0).toString(16);

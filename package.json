@@ -1,7 +1,7 @@
 {
-  "name": "angular2-express-starter",
+  "name": "appstract-server",
   "version": "1.0.0",
-  "description": "Starter application of Angular2 with Express",
+  "description": "A data visualization experiment that uses mouse movements to create an abstract digital \"painting.\"",
   "main": "server/app.js",
   "license": "MIT",
   "angular-cli": {},
@@ -54,14 +54,14 @@
     "express": "^4.13.4",
     "express-jwt": "^3.3.0",
     "jsonwebtoken": "^5.7.0",
-    "lodash": "^4.16.6",
+    "lodash": "^4.17.2",
     "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
     "onecolor": "^3.0.4",
     "path": "^0.12.7",
     "rxjs": "5.0.0-beta.12",
     "socket.io": "^1.5.1",
-    "socket.io-client": "^1.5.1",
+    "socket.io-client": "^1.7.2",
     "ts-helpers": "^1.1.1",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
@@ -69,6 +69,10 @@
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.44",
+    "@types/node": "^6.0.52",
+    "@types/socket.io-client": "^1.4.29",
+    "codelyzer": "1.0.0-beta.1",
     "concurrently": "^3.1.0",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
@@ -78,7 +82,6 @@
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
     "nodemon": "^1.11.0",
-    "protractor": "4.0.9",
-    "codelyzer": "1.0.0-beta.1"
+    "protractor": "4.0.9"
   }
 }
