@@ -20,6 +20,4 @@ npm run start
 ```
 
 
-### TODOS
-* Clean up webpack build process to only need 1 set of files for electron run rather than dev & prod
 
