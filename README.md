@@ -1,7 +1,8 @@
 # Appstract : Server
 
-Appstract is a data visualization experiment that uses mouse movements to create an abstract digital "painting."
-From  [Ignite Partnership in Dallas, TX](https://www.igniteparntership.com?utm_source=github&utm_campaign=appstract)
+Appstract is a data visualization experiment that uses electron/socket.io to capture mouse movements and angular2/express to create an abstract digital painting.
+
+Created By: [Ignite Partnership in Dallas](http://www.ignitepartnership.com/?utm_source=github&utm_campaign=appstract)
 
 ![Icon](https://raw.githubusercontent.com/soupman99/appstract-server/master/git_assets/hero.png)
 
