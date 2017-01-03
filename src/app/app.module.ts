@@ -12,10 +12,10 @@ import { CanvasComponent } from './components/canvas.component/canvas.component'
 
 //SERVICES
 import { CanvasService } from './services/canvas.service/canvas.service'
-import { SocketService } from './services/sockets.service/sockets.service'
+import { SocketService } from './del/sockets.service/sockets.service'
 //import { routing } from './app.routing';
-import { feedReducer } from './store/feed/feed.reducer';
-import { FeedEffects } from './store/feed/feed.effects';
+import { feedReducer } from './del/store/feed/feed.reducer';
+import { FeedEffects } from './del/store/feed/feed.effects';
 //import { TestComponent } from './test/test.component';
 
 @NgModule({

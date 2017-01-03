@@ -1,8 +1,7 @@
-import { Component, AfterViewInit, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { CanvasService } from '../../services/canvas.service/canvas.service';
-import { SocketService } from "../../services/sockets.service/sockets.service";
+import { SocketService } from "../../del/sockets.service/sockets.service";
 
-import * as _ from 'lodash';
 var Color = require("color");
 
 import * as io from 'socket.io-client';
@@ -22,7 +21,7 @@ export class CanvasComponent implements OnInit {
   @ViewChild("myCanvas") myCanvas;
 
   constructor(private canvasService:CanvasService, private socketService:SocketService){
-    this.socket = io("http://10.1.160.90:4300");
+    this.socket = io("http://localhost:4300");
 
      }
   ngOnInit() {
@@ -89,7 +88,6 @@ export class CanvasComponent implements OnInit {
 
   attachSocketActions(){
     let canvasService = this.canvasService;
-    let socket = this.socket;
 
     this.socket.on('receiveAllClients', (allClients)=>{
 
@@ -97,12 +95,9 @@ export class CanvasComponent implements OnInit {
 
     })
 
-
     this.socket.on('connect', ()=>{
       console.log('connected as %s', this.socket.id);
     })
-
-
 
     this.socket.on('drawMouse', (data)=>{
         this.draw(data)
