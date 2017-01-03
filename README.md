@@ -18,6 +18,8 @@ git clone https://github.com/soupman99/appstract-client.git
 cd appstract-client && npm i
 npm run start
 ```
+### TODOS
+* convert from angluar cli to webpack for consistent build process across server & client.
 
 
 
