@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { CanvasService } from '../../services/canvas.service/canvas.service';
-import { SocketService } from "../../del/sockets.service/sockets.service";
+import { SocketService } from "../../services/sockets.service/sockets.service";
 
 var Color = require("color");
 
