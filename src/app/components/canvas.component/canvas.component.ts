@@ -21,10 +21,10 @@ export class CanvasComponent implements OnInit {
   @ViewChild("myCanvas") myCanvas;
 
   constructor(private canvasService:CanvasService, private socketService:SocketService){
-    //this.socket = io("http://localhost:4300");
+    this.socket = io("http://localhost:4300");
 
     //public URL
-    this.socket = io("http://159.203.171.1:4300");
+    //this.socket = io("http://159.203.171.1:4300");
 
 
   }
