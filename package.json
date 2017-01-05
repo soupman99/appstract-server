@@ -18,7 +18,7 @@
   },
   "author": "Vlado Tešanović",
   "repository": {
-    "url": "https://github.com/vladotesanovic/angular2-express-starter"
+    "url": "npm star"
   },
   "private": true,
   "dependencies": {
@@ -74,6 +74,7 @@
     "@types/socket.io-client": "^1.4.29",
     "codelyzer": "1.0.0-beta.1",
     "concurrently": "^3.1.0",
+    "flightplan": "^0.6.15",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

@@ -23,7 +23,11 @@ export class CanvasComponent implements OnInit {
   constructor(private canvasService:CanvasService, private socketService:SocketService){
     this.socket = io("http://localhost:4300");
 
-     }
+    //public URL
+    //this.socket = io("http://159.203.171.1:4300");
+
+
+  }
   ngOnInit() {
 
     this.canvas = this.myCanvas.nativeElement;
@@ -53,7 +57,7 @@ export class CanvasComponent implements OnInit {
 
 
   draw(data){
-    console.info('%s - drawing - socket: %s - color: %s', data.ip, data.id, this.canvasService.layers[data.id].color);
+    //console.info('%s - drawing - socket: %s - color: %s', data.ip, data.id, this.canvasService.layers[data.id].color);
     this.context.lineCap = 'round';
     this.context.lineWidth = this.canvasService.layers[data.id].lineWidth;
 
@@ -96,7 +100,7 @@ export class CanvasComponent implements OnInit {
     })
 
     this.socket.on('connect', ()=>{
-      console.log('connected as %s', this.socket.id);
+      //console.log('connected as %s', this.socket.id);
     })
 
     this.socket.on('drawMouse', (data)=>{
