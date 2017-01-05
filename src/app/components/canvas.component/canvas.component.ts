@@ -57,7 +57,7 @@ export class CanvasComponent implements OnInit {
 
 
   draw(data){
-    console.info('%s - drawing - socket: %s - color: %s', data.ip, data.id, this.canvasService.layers[data.id].color);
+    //console.info('%s - drawing - socket: %s - color: %s', data.ip, data.id, this.canvasService.layers[data.id].color);
     this.context.lineCap = 'round';
     this.context.lineWidth = this.canvasService.layers[data.id].lineWidth;
 
