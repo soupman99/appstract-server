@@ -100,7 +100,7 @@ export class CanvasComponent implements OnInit {
     })
 
     this.socket.on('connect', ()=>{
-      console.log('connected as %s', this.socket.id);
+      //console.log('connected as %s', this.socket.id);
     })
 
     this.socket.on('drawMouse', (data)=>{
